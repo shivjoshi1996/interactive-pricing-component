@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import Button from "./Button";
 
 const StyledPricingContainer = styled.div`
   height: 60vh;
@@ -15,13 +16,12 @@ const StyledPricingInput = styled.input`
   width: 80%;
   border-radius: 50px;
   height: 8px;
-  background: #ECF0FB;
+  background: #F1F5FE;
   outline: none;
   -webkit-transition: .2s;
   transition: opacity .2s;
   margin-top: 40px;
   margin-bottom: 40px;
-  
 
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -61,9 +61,87 @@ const StyledMonthlyPrice = styled.p`
   }
 `;
 
+// -------------- TODO: Refactor toggle into its own component -------------------
+
 const StyledToggleContainer = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
+
+  > p {
+    color: #848EAD;
+    font-size: 12px;
+    margin-right: 10px;
+    margin-left: 10px;
+
+    span {
+      color: #FF8D68;
+      font-size: 10px;
+      background-color: #FEEDE8;
+      border-radius: 50px;
+      padding: 2px 5px;
+      margin-left: 5px;
+    }
+  }
+`;
+
+const Toggle = styled.label`
+  position: relative;
+  display: inline-block;
+  width: 43px;
+  height: 22px;
+
+  > input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + span {
+      background-color: #10D8C4;
+    }
+
+    &:focus + span {
+      box-shadow: 0 0 1px #10D8C4;
+    }
+
+    &:checked + span::before {
+      transform: translateX(21px);
+    }
+
+  }
+
+  > span {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #CFD8EF;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+
+    &::before {
+      position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+    }
+  }
+`;
+
+const StyledHr = styled.hr`
+  margin-top: 38px;
+  height: 1px;
+  background-color: #ECF0FB;
+  border: none;
 `;
 
 export default function Pricing() {
@@ -132,12 +210,14 @@ export default function Pricing() {
 
       <StyledToggleContainer>
         <p>Monthly Billing</p>
-        <label>
+        <Toggle>
           <input type="checkbox" checked={isYearlyBilling} onChange={handleCheckBoxChange}/>
           <span></span>
-        </label>
-        <p>Yearly Billing</p>
+        </Toggle>
+        <p>Yearly Billing<span>-25%</span></p>
       </StyledToggleContainer>
+
+      <StyledHr />
 
       <ul>
         <li>Unlimited Websites</li>
@@ -145,7 +225,7 @@ export default function Pricing() {
         <li>Email Reports</li>
       </ul>
 
-      <button>Start my trial</button>
+      <Button>Start my trial</Button>
     
     </StyledPricingContainer>
   );
