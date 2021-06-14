@@ -3,12 +3,15 @@ import styled from "styled-components";
 import Button from "./Button";
 
 const StyledPricingContainer = styled.div`
-  height: 60vh;
+  min-height: 400px;
   width: 90vw;
+  max-width: 540px;
   margin: 0 auto;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0px 20px 30px -5px rgba(127, 137, 185, 0.152073);
+  padding-top: 34px;
+  padding-bottom:  32px; 
 `
 
 const StyledPricingInput = styled.input`
@@ -46,7 +49,6 @@ const StyledPageViews = styled.p`
   font-weight: 800;
   line-height: 16px;
   letter-spacing: 2px;
-  padding-top: 34px;
 `;
 
 const StyledMonthlyPrice = styled.p`
@@ -144,6 +146,35 @@ const StyledHr = styled.hr`
   border: none;
 `;
 
+const StyledBottomContainer = styled.div`
+  margin-top: 24px;
+
+  @media (min-width: 768px) {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
+`;
+
+const StyledUnorderedList = styled.ul`
+  list-style-image: url('/icon-check.svg');
+  list-style-type: circle;
+  width: fit-content;
+  margin: 0 auto;
+  margin-bottom: 32px;
+  list-style-position: inside;
+
+  @media (min-width: 768px) {
+    
+  }
+`;
+
+const StyledListItem = styled.li`
+  color: #848EAD;
+  font-size: 12px;
+  margin-bottom: 10px;
+`;
+
 export default function Pricing() {
 
   const [sliderValue, setSliderValue] = useState(500000);
@@ -219,13 +250,17 @@ export default function Pricing() {
 
       <StyledHr />
 
-      <ul>
-        <li>Unlimited Websites</li>
-        <li>100% data ownership</li>
-        <li>Email Reports</li>
-      </ul>
+      <StyledBottomContainer>
 
-      <Button>Start my trial</Button>
+        <StyledUnorderedList>
+          <StyledListItem>Unlimited Websites</StyledListItem>
+          <StyledListItem>100% data ownership</StyledListItem>
+          <StyledListItem>Email Reports</StyledListItem>
+        </StyledUnorderedList>
+
+        <Button>Start my trial</Button>
+
+      </StyledBottomContainer>
     
     </StyledPricingContainer>
   );

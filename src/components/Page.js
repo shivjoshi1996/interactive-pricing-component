@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 const StyledPage = styled.div`
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  min-width: 100vw;
+  padding-bottom: 88px;
   background-image: url("/bg-pattern.svg");
   background-repeat: no-repeat;
   text-align: center;
