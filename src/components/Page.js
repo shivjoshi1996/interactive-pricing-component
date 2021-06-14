@@ -8,6 +8,12 @@ const StyledPage = styled.div`
   background-repeat: no-repeat;
   text-align: center;
   font-family: 'Manrope', sans-serif;
+  background-size: 100vw 50vh;
+
+  @media (min-width: 768px) {
+    padding-bottom: unset;
+  }
+
 `;
 
 

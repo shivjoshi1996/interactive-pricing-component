@@ -12,7 +12,12 @@ const StyledPricingContainer = styled.div`
   box-shadow: 0px 20px 30px -5px rgba(127, 137, 185, 0.152073);
   padding-top: 34px;
   padding-bottom:  32px; 
-`
+
+  @media (min-width: 768px) {
+    min-height: 100%;
+    padding-bottom: 32px;
+  }
+`;
 
 const StyledPricingInput = styled.input`
   -webkit-appearance: none;
@@ -32,13 +37,17 @@ const StyledPricingInput = styled.input`
     width: 40px;
     height: 40px;
     border-radius: 100px;
-    background: #10D8C4;
+    background-color: #10D8C4;
     cursor: pointer;
     background-image: url("/icon-slider.svg");
     background-repeat: no-repeat;
     background-size: 25px 15px;
     background-position: center;
     box-shadow: 0px 15px 30px rgba(0, 255, 231, 0.6);
+
+    &:hover {
+      background-color: #A4F3EB;
+    }
   }
 `;
 
@@ -49,6 +58,10 @@ const StyledPageViews = styled.p`
   font-weight: 800;
   line-height: 16px;
   letter-spacing: 2px;
+
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const StyledMonthlyPrice = styled.p`
@@ -76,13 +89,20 @@ const StyledToggleContainer = styled.div`
     margin-right: 10px;
     margin-left: 10px;
 
-    span {
+    > span {
       color: #FF8D68;
       font-size: 10px;
       background-color: #FEEDE8;
       border-radius: 50px;
       padding: 2px 5px;
       margin-left: 5px;
+
+      > span {
+        display: none;
+        @media (min-width: 768px) {
+          display: inline-block;
+        }
+      }
     }
   }
 `;
@@ -151,8 +171,11 @@ const StyledBottomContainer = styled.div`
 
   @media (min-width: 768px) {
     display: flex;
-    width: 100%;
+    width: 80%;
     justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 32px;
   }
 `;
 
@@ -165,7 +188,8 @@ const StyledUnorderedList = styled.ul`
   list-style-position: inside;
 
   @media (min-width: 768px) {
-    
+    margin: unset;
+    text-align: left;
   }
 `;
 
@@ -245,7 +269,7 @@ export default function Pricing() {
           <input type="checkbox" checked={isYearlyBilling} onChange={handleCheckBoxChange}/>
           <span></span>
         </Toggle>
-        <p>Yearly Billing<span>-25%</span></p>
+        <p>Yearly Billing<span>-25% <span> discount</span></span></p>
       </StyledToggleContainer>
 
       <StyledHr />
