@@ -225,6 +225,7 @@ export default function Pricing() {
           step="10000"
           value={sliderValue}
           onChange={handleSliderChange}
+          label="slider"
         />
         <StyledMonthlyPrice>
           <span>${billingCost}</span> / Month

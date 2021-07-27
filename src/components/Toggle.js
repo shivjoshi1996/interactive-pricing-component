@@ -87,7 +87,12 @@ export default function Toggle({ checked, onChange }) {
       <StyledToggleContainer>
         <p>Monthly Billing</p>
         <StyledToggle>
-          <input type="checkbox" checked={checked} onChange={onChange} />
+          <input
+            type="checkbox"
+            checked={checked}
+            onChange={onChange}
+            label="checkbox"
+          />
           <span />
         </StyledToggle>
         <p>
