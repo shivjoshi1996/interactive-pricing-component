@@ -187,10 +187,12 @@ export default function Pricing() {
 
   useEffect(() => {
     calculateMonthlyBilling();
+    // eslint-disable-next-line
   }, [isYearlyBilling, sliderValue]);
 
   useEffect(() => {
     calculatePageViews();
+    // eslint-disable-next-line
   }, [sliderValue]);
 
   return (
