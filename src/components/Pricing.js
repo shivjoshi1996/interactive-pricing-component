@@ -65,6 +65,25 @@ const StyledPricingInput = styled.input`
       background-color: #a4f3eb;
     }
   }
+  &::-moz-range-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 100px;
+    background-color: #10d8c4;
+    cursor: pointer;
+    background-image: url('/icon-slider.svg');
+    background-repeat: no-repeat;
+    background-size: 25px 15px;
+    background-position: center;
+    box-shadow: 0px 15px 30px rgba(0, 255, 231, 0.6);
+    border: none;
+
+    &:hover {
+      background-color: #a4f3eb;
+    }
+  }
 `;
 
 const StyledPageViews = styled.p`
