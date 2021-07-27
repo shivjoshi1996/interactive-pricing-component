@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 const StyledButton = styled.button`
   height: 41px;
@@ -14,15 +14,15 @@ const StyledButton = styled.button`
 
   > p {
     font-size: 12px;
-    color: #BECDFF;
+    color: #becdff;
     font-weight: 800;
   }
 `;
 
-export default function Button(props){
+export default function Button({ children }) {
   return (
     <StyledButton>
-      <p>{props.children}</p>
+      <p>{children}</p>
     </StyledButton>
-  )
+  );
 }
